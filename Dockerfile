@@ -6,7 +6,7 @@ RUN make
 FROM busybox as busybox
 RUN which busybox
 
-FROM portainer/portainer:1.19.2
+FROM portainer/portainer:latest
 COPY --from=ecr-helper /go/src/github.com/awslabs/amazon-ecr-credential-helper/bin/local/docker-credential-ecr-login /bin/docker-credential-ecr-login
 COPY config.json /data/config.json
 COPY --from=busybox /bin/busybox /bin/busybox
